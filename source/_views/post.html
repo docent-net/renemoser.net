@@ -1,0 +1,64 @@
+{% extends "default" %}
+{% block content_wrapper %}
+    <article>
+        <header>
+            <h2>{{ page.title }} <small>post</small></h2>
+        </header>
+        <small>
+            <div class="author">
+        {% if page.author %}
+            Author: {{ page.author }}
+        {% else %}
+            Author: {{ site.author }}
+        {% endif %}
+            </div>
+        {% if page.categories %}
+            <div class="categories">
+            Categories:
+            {% for category in page.categories %}
+            <a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            </div>
+        {% endif %}
+        {% if page.tags %}
+            <div class="tags">
+            Tags:
+            {% for tag in page.tags %}
+            <a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            </div>
+        {% endif %}
+        </small>
+        
+        <div>
+            <p>{{ page.blocks.content|raw }}</p>
+        </div>
+
+        {% if site.use_social %}
+        <div class="share">
+            <ul>
+                <li>
+                    <script id='fbmamqg'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=resmo&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbmamqg');</script>
+                </li>
+                <li>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="resmo79">Tweet</a>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
+        {% if page.previous_post or page.next_post %}
+            <nav class="article">
+                <ul>
+                    {% if page.next_post %}
+                        <li>Next: <a class="next" href="{{ site.url }}{{ page.next_post.url }}" title="{{ page.next_post.title }}"><span class="title">{{ page.next_post.title }}</span></a></li>
+                    {% endif %}
+                    {% if page.previous_post %}
+                        <li>Previous: <a class="previous" href="{{ site.url }}{{ page.previous_post.url }}" title="{{ page.previous_post.title }}"><span class="title">{{ page.previous_post.title }}</span></a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    </article>
+{% endblock %}
+

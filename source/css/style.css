@@ -1,0 +1,51 @@
+a {
+color: #33AABB;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #33CCFF;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  padding-bottom: 4px;
+  padding-top: 8px;
+  text-shadow: #000 1px 1px 1px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+ul {
+  list-style-type:square;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+footer {
+  margin-top: 10px;
+}
+
+.share ul {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+}
+
+.share li {
+  display: inline;
+  padding-left: 1px;
+  padding-right: 1px;
+}
