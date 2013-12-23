@@ -2,7 +2,7 @@
 {% block content_wrapper %}
     <article>
         <header>
-            <h2>{{ page.title }} <small><a href="https://github.com/resmo/renemoser.net/blob/master/source/_posts/">edit</a></small></h2>
+            <h1>{{ page.title }} <small><a href="https://github.com/resmo/renemoser.net/blob/master/source/_posts/">edit</a></small></h1>
         </header>
         <small>
             <div class="author">
@@ -11,6 +11,9 @@
         {% else %}
             Author: {{ site.author }}
         {% endif %}
+            </div>
+            <div class="date">
+            Date: {{ page.date|date("m/d/Y") }}
             </div>
         {% if page.categories %}
             <div class="categories">
