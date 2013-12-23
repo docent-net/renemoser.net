@@ -49,3 +49,13 @@ footer {
   padding-left: 1px;
   padding-right: 1px;
 }
+
+article {
+  margin-bottom: 10px;
+}
+
+header h2 {
+  border-bottom:1px solid #111;
+}
+
+
