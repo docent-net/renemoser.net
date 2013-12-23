@@ -1,5 +1,5 @@
 ---
-title : Assign IPs to geographical Location
+title : Assign IPs to geographical location
 categories:
  - programming
 tags: 
