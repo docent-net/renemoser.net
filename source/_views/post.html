@@ -4,39 +4,28 @@
         <header>
             <h1>{{ page.title }} <small><a href="https://github.com/resmo/renemoser.net/blob/master/source/_posts/">edit</a></small></h1>
         </header>
-        <small>
-            <div class="author">
+        <div class="meta" style="margin-bottom: 20px">
         {% if page.author %}
-            Author: {{ page.author }}
+          <span class="label label-primary">{{ page.author }}</span>
         {% else %}
-            Author: {{ site.author }}
+          <span class="label label-primary">{{ site.author }}</span>
         {% endif %}
-            </div>
-            <div class="date">
-            Date: {{ page.date|date("m/d/Y") }}
-            </div>
+          <span class="label label-primary">{{ page.date|date("m/d/Y") }}</span>
         {% if page.categories %}
-            <div class="categories">
-            Categories:
             {% for category in page.categories %}
-            <a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a>{% if not loop.last %}, {% endif %}
+            <span class="label label-info"><a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a></span>
             {% endfor %}
-            </div>
         {% endif %}
         {% if page.tags %}
-            <div class="tags">
-            Tags:
             {% for tag in page.tags %}
-            <a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+            <span class="label label-default"><a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a></span>
             {% endfor %}
-            </div>
         {% endif %}
-        </small>
-        
-        <div>
-            <p>{{ page.blocks.content|raw }}</p>
         </div>
-
+        <div class="content">
+            {{ page.blocks.content|raw }}
+        </div>
+        <br/><br/>
         {% if site.use_social %}
         <div class="share">
             <ul>
@@ -51,16 +40,16 @@
         </div>
         {% endif %}
         {% if page.previous_post or page.next_post %}
-            <nav class="article">
-                <ul>
-                    {% if page.next_post %}
-                        <li>Next: <a class="next" href="{{ site.url }}{{ page.next_post.url }}" title="{{ page.next_post.title }}"><span class="title">{{ page.next_post.title }}</span></a></li>
-                    {% endif %}
-                    {% if page.previous_post %}
-                        <li>Previous: <a class="previous" href="{{ site.url }}{{ page.previous_post.url }}" title="{{ page.previous_post.title }}"><span class="title">{{ page.previous_post.title }}</span></a></li>
-                    {% endif %}
-                </ul>
-            </nav>
+        <nav class="article">
+            <ul class="nav nav-pills">
+                {% if page.next_post %}
+                    <li><a class="next" href="{{ site.url }}{{ page.next_post.url }}" title="Next: {{ page.next_post.title }}"><span class="glyphicon glyphicon-step-backward"></span> Next</a></li>
+                {% endif %}
+                {% if page.previous_post %}
+                    <li><a class="previous" href="{{ site.url }}{{ page.previous_post.url }}" title="Previous: {{ page.previous_post.title }}"><span class="glyphicon glyphicon-step-forward"></span> Previous</a></li>
+                {% endif %}
+            </ul>
+        </nav>
         {% endif %}
     </article>
 {% endblock %}
