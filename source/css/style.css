@@ -1,3 +1,5 @@
+body { padding-top: 70px; }
+
 a {
 color: #33AABB;
   text-decoration: none;
@@ -53,9 +55,3 @@ footer {
 article {
   margin-bottom: 10px;
 }
-
-header h2 {
-  border-bottom:1px solid #111;
-}
-
-
