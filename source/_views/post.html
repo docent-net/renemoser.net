@@ -27,17 +27,7 @@
         </div>
         <br/><br/>
         {% if site.use_social %}
-        <div class="share">
-            <ul>
-                <li>
-                    <script id='fbmamqg'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=resmo&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbmamqg');</script>
-                </li>
-                <li>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="resmo79">Tweet</a>
-                </li>
-            </ul>
-        </div>
+            <div data-social-share-privacy='true'></div>
         {% endif %}
         {% if page.previous_post or page.next_post %}
         <nav class="article">
@@ -52,5 +42,11 @@
         </nav>
         {% endif %}
     </article>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
+<script type="application/x-social-share-privacy-settings">{"path_prefix":"http://panzi.github.io/SocialSharePrivacy/","layout":"line","services":{"buffer":{"status":false},"delicious":{"status":false},"disqus":{"status":false},"facebook":{"status":false},"fbshare":{"status":false},"hackernews":{"status":false},"linkedin":{"status":false},"mail":{"status":false},"pinterest":{"status":false},"reddit":{"status":false},"stumbleupon":{"status":false},"tumblr":{"status":false},"flattr":{"uid":"resmo"}}}</script>
+<script type="text/javascript">(function () {var s = document.createElement('script');var t = document.getElementsByTagName('script')[0];s.type = 'text/javascript';s.async = true;s.src = 'http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js';t.parentNode.insertBefore(s, t);})();</script>
 {% endblock %}
 
