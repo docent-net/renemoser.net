@@ -1,4 +1,14 @@
 {% extends "default" %}
+
+{% block meta %}
+{% if page.author %}
+<meta name="author" content="{{ page.author }}" />
+{% else %}
+<meta name="author" content="{{ site.author }}" />
+{% endif %}
+<meta name="keywords" content="{% for tag in page.tags %}{{ tag }}, {% endfor %}" />
+{% endblock %}
+
 {% block content_wrapper %}
     <article>
         <header>
