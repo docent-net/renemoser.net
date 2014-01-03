@@ -15,7 +15,7 @@ I usually test my projects automatically with [Travis](https://travis-ci.org) on
 
 ## Set up a playbook
 
-First, we set up a simple playbook targeted to localhost and include var files, tasks and handlers
+First, we set up a simple playbook targeted to localhost and include var files, tasks and handlers:
 
     ---
     - hosts: localhost
@@ -34,7 +34,7 @@ This base playbook can be used in every role with no change.
 
 The travis file is also straigt forward. As we know, the test will run on [Ubuntu](http://www.ubuntu.com), we also install some known dependencices by default, like `python-apt` and `python-pycurl`.
 
-We install latest released ansible and set up the inventory. Then we check first for syntax errors and after this, we run the playbook. 
+We install latest released ansible and set up the inventory. Then we check first for syntax errors and after this, we run the playbook.
 
 To gain root permissions on Travis, we must use `--sudo`, even though, `remote_user` is set as `root`.
 
@@ -59,6 +59,6 @@ As a working example, I show you my role for installing fail2ban, [ansible-role-
 
 ## Summary
 
-It is no magic using Travis to have a basic, automated test environment for Ubuntu. It gives you a good warm feeling if you change something and the tests passes, and this for free. 
+It is no magic using Travis to have a basic, automated test environment for Ubuntu. It gives you a good warm feeling if you change something and the tests pass, and this for free. 
 
-In the future, It would be great if we could also run the tests on several different OS'. Maybe Travis or even Ansibleworks brings us this feature. Hint, Hint.
+In the future, It would be great if we could also run the tests on several different OS'. Maybe Travis or even Ansibleworks will bring us this feature. Hint, Hint.
