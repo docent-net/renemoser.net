@@ -39,7 +39,7 @@ As you can see, we define the roles path to be the one directory level above.
 
 The travis file is also straigt forward. As we know, the test will run on [Ubuntu](http://www.ubuntu.com), we also install some known dependencices by default, like `python-apt` and `python-pycurl`.
 
-We install latest released ansible <del>and set up the inventory</del>. There is no need to set up an inventory file as ansible can use localhost without an inventory since version 1.5. Then we check first for syntax errors and after this, we run the playbook.
+We install latest released ansible and set up the inventory. Then we check first for syntax errors and after this, we run the playbook.
 
 To gain root permissions on Travis, we must use `--sudo`, even though, `remote_user` is set as `root`.
 
@@ -54,8 +54,9 @@ Further we use the a local connection and set verbosity to maximum. Note, We onl
     install:
       - pip install ansible
     script:
-      - ansible-playbook --syntax-check -i inventory role.yml
-      - ansible-playbook -i inventory role.yml --connection=local --sudo -vvvv
+      - echo localhost > inventory
+      - ansible-playbook -i inventory --syntax-check role.yml
+      - ansible-playbook -i inventory --connection=local --sudo -vvvv role.yml
 
 
 If your role has dependendies defined in your `meta/main.yml` you can simply install the dependencies in your install step using `ansible-galaxy` like:
