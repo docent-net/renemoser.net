@@ -1,3 +1,4 @@
 ---
-sculpin_posts:
-  permalink: blog/:year/:month/:day/:filename/
+sculpin_content_types:
+    posts:
+        permalink: blog/:year/:month/:day/:filename/
