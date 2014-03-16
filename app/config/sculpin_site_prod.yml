@@ -1,0 +1,6 @@
+---
+imports:
+  - sculpin_site.yml
+google_analytics_tracking_id: UA-31117679-1
+use_social: yes
+url: //renemoser.net
