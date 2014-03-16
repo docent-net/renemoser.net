@@ -8,6 +8,8 @@ use:
 
 <div class="meta">
 {% for category,posts in data.posts_categories %}
-  <span class="label label-info"><a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a></span>
+<article>
+<div><a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a></div>
+</article>
 {% endfor %}
 </div>
