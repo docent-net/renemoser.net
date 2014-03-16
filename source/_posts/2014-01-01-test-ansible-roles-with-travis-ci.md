@@ -1,5 +1,6 @@
 ---
 title : Test Ansible roles with Travis CI
+updated_at: 2014-03-15
 categories:
  - sysadmin
 tags :
