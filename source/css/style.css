@@ -10,9 +10,17 @@ a:hover {
   text-decoration: none;
 }
 
+header > h1 {
+  padding-top: 0px;
+  margin-top: 2px;
+}
+
+.label {
+  margin-left: 2px;
+}
+
 h1, h2, h3 {
   padding-bottom: 4px;
-  padding-top: 8px;
   text-shadow: #000 1px 1px 1px;
 }
 
