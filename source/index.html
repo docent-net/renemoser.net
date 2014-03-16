@@ -10,24 +10,22 @@ use:
 {% for post in page.pagination.items %}
     <article>
         <header>
-            <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> ::..</h2>
+        {% if post.meta.categories %}
+            {% for category in post.meta.categories %}
+            <a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a>
+            {% endfor %}
+        {% endif %}
+            <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> ::..</h1>
         </header>
         <div class="meta" style="margin-bottom: 20px">
         {% if page.meta.author %}
-          <span class="label label-primary">{{ post.meta.author }}</span>
+          <span class="label label-primary"><i class="fa fa-user"></i>&nbsp;{{ post.meta.author }}</span>
         {% else %}
-          <span class="label label-primary">{{ site.author }}</span>
+          <span class="label label-primary"><i class="fa fa-user"></i>&nbsp;{{ site.author }}</span>
         {% endif %}
-          <span class="label label-primary">{{ post.date|date("m/d/Y") }}</span>
-        {% if post.meta.categories %}
-            {% for category in post.meta.categories %}
-            <span class="label label-info"><a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a></span>
-            {% endfor %}
-        {% endif %}
-        {% if post.meta.tags %}
-            {% for tag in post.meta.tags %}
-            <span class="label label-default"><a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a></span>
-            {% endfor %}
+        <span class="label label-primary"><i class="fa fa-clock-o"></i>&nbsp;{{ post.date|date("m/d/Y") }}</span>
+        {% if post.meta.updated_at %}
+          <span class="label label-primary"><i class="fa fa-refresh"></i>&nbsp;{{ post.meta.updated_at|date("m/d/Y") }}</span>
         {% endif %}
         </div>
     </article>

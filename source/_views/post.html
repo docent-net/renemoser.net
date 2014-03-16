@@ -12,20 +12,24 @@
 {% block content_wrapper %}
     <article>
         <header>
-            <h1>{{ page.title }} <small><a href="https://github.com/resmo/renemoser.net/blob/master/source/_posts/">edit</a></small></h1>
+        {% if page.categories %}
+            {% for category in page.categories %}
+            <a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a>
+            {% endfor %}
+        {% endif %}
+            <h1>{{ page.title }} <small><a href="https://github.com/resmo/renemoser.net/blob/master/source/_posts/{{ page.date | date('Y-m-d') }}-{{ page.url | split('/') | last }}.md">edit</a></small></h1>
         </header>
         <div class="meta" style="margin-bottom: 20px">
         {% if page.author %}
-          <span class="label label-primary">{{ page.author }}</span>
+          <span class="label label-primary"><i class="fa fa-user"></i>&nbsp;{{ page.author }}</span>
         {% else %}
-          <span class="label label-primary">{{ site.author }}</span>
+          <span class="label label-primary"><i class="fa fa-user"></i>&nbsp;{{ site.author }}</span>
         {% endif %}
-          <span class="label label-primary">{{ page.date|date("m/d/Y") }}</span>
-        {% if page.categories %}
-            {% for category in page.categories %}
-            <span class="label label-info"><a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a></span>
-            {% endfor %}
+        <span class="label label-primary"><i class="fa fa-clock-o"></i>&nbsp;{{ page.updated_at|date("m/d/Y") }}</span>
+        {% if page.updated_at %}
+          <span class="label label-primary"><i class="fa fa-refresh"></i>&nbsp;{{ page.updated_at|date("m/d/Y") }}</span>
         {% endif %}
+          <br/>
         {% if page.tags %}
             {% for tag in page.tags %}
             <span class="label label-default"><a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a></span>
@@ -37,7 +41,7 @@
         </div>
         <br/><br/>
         {% if site.use_social %}
-            <div data-social-share-privacy='true'></div>
+            <div data-social-share-privacy="true" style="margin-bottom: 10px"></div>
         {% endif %}
         {% if page.previous_post or page.next_post %}
         <nav class="article">
