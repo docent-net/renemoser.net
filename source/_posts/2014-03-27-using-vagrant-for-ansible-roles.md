@@ -11,14 +11,16 @@ You may have read my [post](/blog/2014/01/01/test-ansible-roles-with-travis-ci) 
 
 ## Vagrant
 
-[Vagrant ](http://www.vagrantup.com) acts as a wrapper of your virtualisation software. It is used to minimize the complexity to download the base VM, setup, provisioning, using and destroying the VM over and over again. To handle this vagrant uses a file where you define the way, how the VM is going to be created: Vagrantfile.
+[Vagrant ](http://www.vagrantup.com) acts as a wrapper of your virtualisation software. It is used to minimize the complexity to download the base VM, set it up, provisioning, using and destroying the VM over and over again. To handle this, vagrant uses a file where you define the way, how the VM is going to be created: the Vagrantfile.
 
 But first [install vagrant](http://www.vagrantup.com/downloads.html).
 
 
 ## Vagrantfile for ansible role
 
-A base and commented Vagrantfile can be created using `vagrant init`. So first, we look at the customized Vagrantfile we will use for the role `ansible-role-ntp`:
+You can set up a base and heavily commented default Vagrantfile running `vagrant init`. 
+
+But below we go directly to the customized Vagrantfile, we will use for the role `ansible-role-ntp`:
 
 ~~~
 # Vagrantfile
@@ -59,7 +61,7 @@ Now, let me explain, what it does.
 
 ### Vagrantfile: Box
 
-I defined the box to be a Ubuntu precise, which will be automatically download if it is not available locally.
+I defined the box to be a Ubuntu precise, which will be automatically downloaded if it is not already locally available.
 
 ~~~
 config.vm.box = "precise32"
@@ -68,11 +70,11 @@ config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
 ### Vagrantfile: Network
 
-We want to have connection to the world.
-
 ~~~
 config.vm.network "public_network"
 ~~~
+
+We want to have connection to the world. So we setup the public network.
 
 If you like to have a private network too, where you can set a static ip and e.g. running another ansible playbook against or test if the service is available, this could also be done easily:
 
@@ -94,7 +96,7 @@ end
 
 ### Vagrantfile: Provider
 
-For better readabilty in virtualbox GUI , we call our VM to be named like the role:
+For better readabilty in the virtualbox GUI , we set our VM to be named like the role:
 
 ~~~
 config.vm.provider :virtualbox do |vb|
@@ -104,7 +106,7 @@ end
 
 ### Vagrantfile: provision
 
-The following shell provision code is only there, because in the box we use pyhton is not installed. We should make a box having pyhton ready so this part can be skipped. But it is good to know, you can do this as well.
+The following shell provision code is only there, because in the box we use didn't have pyhton installed. Later We should make a box having pyhton ready so this part can be skipped. But it is also good to know, you can do this as well.
 
 ~~~bash
 # This should already be in the box.
@@ -116,7 +118,7 @@ SCRIPT
 config.vm.provision "shell", inline: $script
 ~~~
 
-Now the interessting part. we provision ansible:
+Now the interessting part: we provision using ansible:
 
 ~~~
 config.vm.provision "ansible" do |ansible|
