@@ -41,19 +41,19 @@
         </div>
         <br/><br/>
         {% if site.use_social %}
-            <div data-social-share-privacy="true" style="margin-bottom: 10px"></div>
+        <div data-social-share-privacy="true" style="margin-bottom: 10px"></div>
         {% endif %}
         {% if page.previous_post or page.next_post %}
-        <nav class="article">
-            <ul class="nav nav-pills">
-                {% if page.next_post %}
-                    <li><a class="next" href="{{ site.url }}{{ page.next_post.url }}" title="Next: {{ page.next_post.title }}"><span class="glyphicon glyphicon-step-backward"></span> Next</a></li>
-                {% endif %}
-                {% if page.previous_post %}
-                    <li><a class="previous" href="{{ site.url }}{{ page.previous_post.url }}" title="Previous: {{ page.previous_post.title }}"><span class="glyphicon glyphicon-step-forward"></span> Previous</a></li>
-                {% endif %}
-            </ul>
-        </nav>
+        <div id="pager">
+          <ul class="pager">
+              {% if page.previous_post %}
+                  <li class="previous"><a href="{{ site.url }}{{ page.previous_post.url }}" title="Previous: {{ page.previous_post.title }}"><span class="glyphicon glyphicon-step-backward"></span> Previous</a></li>
+              {% endif %}
+              {% if page.next_post %}
+                  <li class="next" ><a href="{{ site.url }}{{ page.next_post.url }}" title="Next: {{ page.next_post.title }}"><span class="glyphicon glyphicon-step-forward"></span> Next</a></li>
+              {% endif %}
+          </ul>
+        </div>
         {% endif %}
     </article>
 {% endblock %}

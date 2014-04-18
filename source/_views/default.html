@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>{% block title %}{{ page.title }}{% endblock %} ::.. {{ site.title }} - {{ site.subtitle }}</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}{{ page.title }}{% endblock %} ::.. {{ site.title }} - {{ site.subtitle }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cyborg/bootstrap.min.css" rel="stylesheet" />
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -44,31 +44,30 @@
             </div>
 
         </header>
-        <div class="mainContent container">
-            <div class="row">
-                <div class="col-md-8">
+        <div class="container">
+            <div class="row row-offcanvas row-offcanvas-right">
+                <div class="col-xs-12 col-sm-9">
                     {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
                 </div>
-                <div class="col-md-4 sidebar">
-                    <div class="sidebar-nav">
+                <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                    <div class="list-group">
                         <h4>Social</h4>
-                        <ul class="nav">
-                          <li><a href="{{ site.url }}/atom.xml">Feed</a></li>
-                          <li><a href="https://github.com/resmo">GitHub</a></li>
-                          <li><a href="http://resume.github.io/?resmo">GitHub Resumé</a></li>
-                          <li><a href="https://twitter.com/resmo79">Twitter</a></li>
-                          <li><a href="https://www.xing.com/profile/Rene_Moser12">Xing</a></li>
-                          <li><a href="https://launchpad.net/~resmo">Launchad</a></li>
-                          <li><a href="https://masterbranch.com/resmo">Masterbranch</a></li>
-                          <li><a href="https://flattr.com/profile/resmo">Flattr</a></li>
-                        </ul>
+                        <a class="list-group-item" href="{{ site.url }}/atom.xml">Feed</a>
+                        <a class="list-group-item" href="https://github.com/resmo">GitHub</a>
+                        <a class="list-group-item" href="https://github.com/resmo">GitHub</a>
+                        <a class="list-group-item" href="http://resume.github.io/?resmo">GitHub Resumé</a>
+                        <a class="list-group-item" href="https://twitter.com/resmo79">Twitter</a>
+                        <a class="list-group-item" href="https://www.xing.com/profile/Rene_Moser12">Xing</a>
+                        <a class="list-group-item" href="https://launchpad.net/~resmo">Launchad</a>
+                        <a class="list-group-item" href="https://masterbranch.com/resmo">Masterbranch</a>
+                        <a class="list-group-item" href="https://flattr.com/profile/resmo">Flattr</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <footer class="container">
-          <p><a href="{{ site.url }}/atom.xml">XML/Atom</a> | <a href="https://github.com/resmo/renemoser.net">Source</a> | Powered by <a href="https://sculpin.io/">sculpin.io</a> | &copy; {{ site.title }}</p>
+            <p><a href="{{ site.url }}/atom.xml">XML/Atom</a> | <a href="https://github.com/resmo/renemoser.net">Source</a> | Powered by <a href="https://sculpin.io/">sculpin.io</a> | &copy; {{ site.title }}</p>
         </footer>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

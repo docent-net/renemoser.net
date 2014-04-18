@@ -8,9 +8,11 @@ title: About
 Hi, my name is René Moser, I work as Linux System Engineer and develop Open Source Software in my free time. Why I use Open Source Software? I just took the best tool I could get!
 
 ## Address
-René Moser<br/>
-Grundmattstrasse 4<br/>
-CH-4565 Recherswil<br/>
+<address>
+  <strong>René Moser</strong><br>
+  Grundmattstrasse 4<br/>
+  CH-4565 Recherswil<br/>
+</address>
 
 <div id="map"></div>
 
@@ -27,21 +29,21 @@ L.marker([47.161045, 7.591968]).addTo(map);
 
 
 ## Contact
-<ul>
-  <li>Phone: <a href="tel:+41326810171">+41 32 681 01 71</a></li>
-  <li>Mobile: <a href="tel:+41763321367">+41 76 332 13 67</a></li>
+<address>
+  <abbr title="Phone"><span class="glyphicon glyphicon-phone-alt"></span></abbr> <a href="tel:+41326810171">+41 32 681 01 71</a><br/>
+  <abbr title="Mobile"><span class="glyphicon glyphicon-phone"></span></abbr> <a href="tel:+41763321367">+41 76 332 13 67</a><br/>
   <script type="text/javascript">
   <!-- 
   var tail='renemoser.net';
   var head='mail';
   var buildedEmail=(head + '@' + tail)
-  document.write('<li>E-Mail: <a href="mailto:' + buildedEmail + '">' + buildedEmail + '</a></li>')
+  document.write('<abbr title="E-mail"><span class="glyphicon glyphicon-envelope"></span></abbr> <a href="mailto:' + buildedEmail + '">' + buildedEmail + '</a>')
   //-->
   </script>
-</ul>
+</address>
 
 ## PGP and SSH Keys
-* PGP Fingerprint: 5826 19B1 A4F6 AE8B C58A  D848 8306 965B E6D6 331D
-* PGP Public Key: <a href="/downloads/rene.moser_public-key.asc">rene.moser_public-key.asc</a>
-* SSH Public Key: <a href="/downloads/renemoser.ssh.pub">renemoser.ssh.pub</a>
+PGP Fingerprint: <pre>5826 19B1 A4F6 AE8B C58A  D848 8306 965B E6D6 331D</pre><br/>
+PGP Public Key: <a href="/downloads/rene.moser_public-key.asc">rene.moser_public-key.asc</a><br/>
+SSH Public Key: <a href="/downloads/renemoser.ssh.pub">renemoser.ssh.pub</a><br/>
 
