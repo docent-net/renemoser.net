@@ -6,6 +6,7 @@
 
 rm -rf ./output_prod
 
+echo "($(git describe --always))" > ./source/_views/git_rev.txt 
 sculpin generate --env=prod
 if [ $? -ne 0 ]; then echo "Could not generate the site"; exit 1; fi
 
