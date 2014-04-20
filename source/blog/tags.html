@@ -6,8 +6,8 @@ use:
 ---
 <h1>Tags</h1>
 
-<div class="meta">
+<div class="meta tags">
 {% for tag,posts in data.posts_tags %}
-  <span class="label label-default"><a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a></span>
+<span class="label label-default"><a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a></span>
 {% endfor %}
 </div>

@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>{% block title %}{{ page.title }}{% endblock %} ::.. {{ site.title }} - {{ site.subtitle }}</title>
+        <title>{% block title %}{{ page.title }}{% endblock %} - {{ site.title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cyborg/bootstrap.min.css" rel="stylesheet" />
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
@@ -15,8 +15,8 @@
         <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js?2"></script>
         <link href="{{ site.url }}/css/style.css" rel="stylesheet" />
         <link href="{{ site.url }}/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
-        <meta name="description" content="{{ page.title }}"/>
 {% block meta %}
+        <meta name="description" content="{{ page.subtitle }}"/>
         <meta name="author" content="{{ site.author }}"/>
 {% endblock %}
     </head>
@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="{{ site.url }}/">{{ site.title }}</a>
+              <a class="navbar-brand" href="{{ site.url }}/"><i class="fa fa-terminal"></i> {{ site.title }}</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -52,22 +52,21 @@
                 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
                     <div class="list-group">
                         <h4>Social</h4>
-                        <a class="list-group-item" href="{{ site.url }}/atom.xml">Feed</a>
-                        <a class="list-group-item" href="https://github.com/resmo">GitHub</a>
-                        <a class="list-group-item" href="https://github.com/resmo">GitHub</a>
-                        <a class="list-group-item" href="http://resume.github.io/?resmo">GitHub Resumé</a>
-                        <a class="list-group-item" href="https://twitter.com/resmo79">Twitter</a>
-                        <a class="list-group-item" href="https://www.xing.com/profile/Rene_Moser12">Xing</a>
+                        <a class="list-group-item" href="{{ site.url }}/atom.xml" title="Atom"><i class="fa fa-rss fa-2x"></i></a>
+                        <a class="list-group-item" href="https://github.com/resmo"  title="GitHub"><i class="fa fa-github fa-2x"></i></a>
+                        <a class="list-group-item" href=" https://alpha.app.net/resmo" title="App.net"><i class="fa fa-adn fa-2x"></i></a>
+                        <a class="list-group-item" href="https://twitter.com/resmo79" title="Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+                        <a class="list-group-item" href="https://www.xing.com/profile/Rene_Moser12" title="Xing"><i class="fa fa-xing fa-2x"></i></a>
+                        <a class="list-group-item" href="https://flattr.com/profile/resmo">Flattr</a>
                         <a class="list-group-item" href="https://launchpad.net/~resmo">Launchad</a>
                         <a class="list-group-item" href="https://masterbranch.com/resmo">Masterbranch</a>
-                        <a class="list-group-item" href="https://flattr.com/profile/resmo">Flattr</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <footer class="container">
-            <p><a href="{{ site.url }}/atom.xml">XML/Atom</a> | <a href="https://github.com/resmo/renemoser.net">Source {% include 'git_rev.txt' ignore missing %}</a> | Powered by <a href="https://sculpin.io/">sculpin.io</a> | &copy; {{ site.title }}</p>
+            <p><a href="{{ site.url }}/atom.xml" title="Atom"><i class="fa fa-rss-square"></i></a> | <a href="https://github.com/resmo/renemoser.net">Source {% include 'git_rev.txt' ignore missing %}</a> | Powered by <a href="https://sculpin.io/">sculpin.io</a> | &copy; {{ site.title }}</p>
         </footer>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

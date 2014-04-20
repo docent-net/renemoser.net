@@ -7,6 +7,7 @@
 <meta name="author" content="{{ site.author }}" />
 {% endif %}
 <meta name="keywords" content="{% for tag in page.tags %}{{ tag }}, {% endfor %}" />
+<meta name="description" content="{{ page.title }}" />
 {% endblock %}
 
 {% block content_wrapper %}
@@ -17,7 +18,7 @@
             <a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a>
             {% endfor %}
         {% endif %}
-            <h1>{{ page.title }} <small><a href="https://github.com/resmo/renemoser.net/blob/master/source/_posts/{{ page.date | date('Y-m-d') }}-{{ page.url | split('/') | last }}.md">edit</a></small></h1>
+            <h1>{{ page.title }}</h1>
         </header>
         <div class="meta" style="margin-bottom: 20px">
         {% if page.author %}
@@ -39,9 +40,16 @@
         <div class="content">
             {{ page.blocks.content|raw }}
         </div>
-        <br/><br/>
-        {% if site.use_social %}
-        <div data-social-share-privacy="true" style="margin-bottom: 10px"></div>
+        <hr/>
+        <div id="social">
+            <p>Found a bug? <a href="https://github.com/resmo/renemoser.net/blob/master/source/_posts/{{ page.date | date('Y-m-d') }}-{{ page.url | split('/') | last }}.md"><i class="fa fa-code-fork"></i> Fork and fix it</a>!
+            {% if site.use_social %}
+            Support my work, spend some beer! 
+            <a href="https://flattr.com/submit/auto?user_id=resmo&url=http:{{site.url}}{{page.url}}&title={{ page.title|url_encode(true) }}&language=en_GB&tags={% for tag in page.tags %}{{ tag|url_encode(true) }},{% endfor %}&category=text">
+            <img src="https://api.flattr.com/button/flattr-badge-large.png" alt="{{ page.title }}" />
+            </a>
+            </p>
+        </div>
         {% endif %}
         {% if page.previous_post or page.next_post %}
         <div id="pager">
@@ -56,11 +64,5 @@
         </div>
         {% endif %}
     </article>
-{% endblock %}
-
-{% block scripts %}
-<script type="text/javascript" src="http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
-<script type="application/x-social-share-privacy-settings">{"path_prefix":"http://panzi.github.io/SocialSharePrivacy/","layout":"line","services":{"buffer":{"status":false},"delicious":{"status":false},"disqus":{"status":false},"facebook":{"status":false},"fbshare":{"status":false},"hackernews":{"status":false},"linkedin":{"status":false},"mail":{"status":false},"pinterest":{"status":false},"reddit":{"status":false},"stumbleupon":{"status":false},"tumblr":{"status":false},"flattr":{"uid":"resmo"}}}</script>
-<script type="text/javascript">(function () {var s = document.createElement('script');var t = document.getElementsByTagName('script')[0];s.type = 'text/javascript';s.async = true;s.src = 'http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js';t.parentNode.insertBefore(s, t);})();</script>
 {% endblock %}
 

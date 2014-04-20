@@ -9,16 +9,16 @@ header > h1 {
   margin-left: 2px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .meta {
   padding-bottom: 4px;
   text-shadow: #000 1px 1px 1px;
 }
 
-h1 {
+h1, .categories {
   font-size: 24px;
 }
 
-h2 {
+h2, .tags {
   font-size: 18px;
 }
 

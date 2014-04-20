@@ -6,10 +6,8 @@ use:
 ---
 <h1>Categories</h1>
 
-<div class="meta">
-{% for category,posts in data.posts_categories %}
-<article>
-<div><a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a></div>
-</article>
+<div class="meta categories">
+{% for category,posts in data.posts_categories|sort %}
+<span class="label label-default"><a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a></span>
 {% endfor %}
 </div>
