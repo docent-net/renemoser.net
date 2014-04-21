@@ -5,13 +5,18 @@ title: About
 ---
 # About the Author
 
-Hi, my name is René Moser, I work as Linux System Engineer and develop Open Source Software in my free time. Why I use Open Source Software? I just took the best tool I could get!
+Hi, my name is René Moser, I work as Linux System Engineer and develop Open Source Software in my free time. I am the author of <a href="https://github.com/git-ftp">git-ftp</a>. Why I use Open Source Software? I just took the best tool I could get!
+
+## Hire me!
+
+If you need someone who has deep knowledge in Linux, software development, build environments and config management systems, someone who communicate well and often and work transparently. Don't hesitate to contact me.
 
 ## Address
 <address>
   <strong>René Moser</strong><br>
   Grundmattstrasse 4<br/>
   CH-4565 Recherswil<br/>
+  Switzerland
 </address>
 
 <div id="map"></div>
