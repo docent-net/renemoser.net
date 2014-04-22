@@ -1,8 +1,9 @@
 ---
-title : Using Vagrant for Ansible roles
+title: Using Vagrant for Ansible roles
+updated_at: 2014-04-22
 categories:
  - sysadmin
-tags :
+tags:
  - ansible
  - vagrant
 ---
@@ -106,7 +107,7 @@ end
 
 ### Vagrantfile: provision
 
-The following shell provision code is only there, because in the box we use didn't have pyhton installed. Later We should make a box having pyhton ready so this part can be skipped. But it is also good to know, you can do this as well.
+The following shell provision code is only there, because python is not installed per default out of the box. Later we should make a vagrant box having python ready so this part can be skipped, but it is also good to know, you can provision using shell code as well.
 
 ~~~bash
 # This should already be in the box.
