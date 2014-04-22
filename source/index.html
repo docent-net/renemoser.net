@@ -23,9 +23,9 @@ use:
             {% else %}
             <span class="label label-primary"><i class="fa fa-user"></i>&nbsp;{{ site.author }}</span>
             {% endif %}
-            <span class="label label-primary"><i class="fa fa-clock-o"></i>&nbsp;{{ post.date|date("m/d/Y") }}</span>
+            <span class="label label-primary" title="created at {{ post.date|date("r") }}"><i class="fa fa-clock-o"></i>&nbsp;{{ post.date|date("m/d/Y") }}</span>
             {% if post.meta.updated_at %}
-            <span class="label label-primary"><i class="fa fa-refresh"></i>&nbsp;{{ post.meta.updated_at|date("m/d/Y") }}</span>
+            <span class="label label-primary" title="updated at {{ post.meta.updated_at|date("r") }}"><i class="fa fa-refresh"></i>&nbsp;{{ post.meta.updated_at|date("m/d/Y") }}</span>
             {% endif %}
         </div>
     </article>
