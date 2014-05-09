@@ -1,5 +1,6 @@
 ---
 title: Manage Bind and zone files using Ansible
+updated_at: 2014-09-05
 categories:
  - sysadmin
 tags :
@@ -71,7 +72,7 @@ For a default zone, just extend the base. The template looks as simple as that:
 ~~~
 
 ## Zone yourotherdomain.tld
-Now, for another domain `yourotherdomain.tld` if we have to setup diffrent NS records, other MX records, so we can simply change the block contents:
+Now, for another domain `yourotherdomain.tld` if want to have a diffrent setup. We would like to have different NS records, other MX records and a new CNAME `echolon` beside the existing ones of the base template. To achieve that all, we change the block contents where needed or extend them by calling the function `parent()` within the block:
 ~~~
 {% verbatim %}; template files/dns/tempaltes/db.yourotherdomain.tld
 {% extends "base" %}
@@ -107,7 +108,7 @@ echolon			IN	CNAME		yourdomain.tld.
 
 ## Generated Zone
 
-The generated zone looks like this:
+The resulting generated zone would then looks like this one below. Also look at the comments in the zone to see what happend in the block.
 
 ~~~
 ; template files/dns/tempaltes/db.yourotherdomain.tld
@@ -146,7 +147,7 @@ echolon         IN  CNAME       yourdomain.tld.
 
 ## Playbook
 
-The play is farly simple, just a simple template task. But the task is set up to run on localhost.
+The play is farly simple, just a template task. But notice the task is set up to run on localhost, so it would only run once at a time and on your local machine.
 
 ~~~
 {% verbatim %}---
@@ -162,7 +163,11 @@ The play is farly simple, just a simple template task. But the task is set up to
 {% endverbatim %}
 ~~~
 
-With the role `ansible-role-bind` and the variable `bind_masterzones_path` pointing to the destination path of our generated templates and the `bind_config_master_zones` having all domain items in the same format we used in our generate_zones.yml play. 
+In the next step, we can use our role `ansible-role-bind` for syncing the generated zone to the nameservers.
+
+To achieve that, the variable `bind_masterzones_path` must point to the destination path of our generated templates and the `bind_config_master_zones` must have at least all identical domain items just like we used in the generate play.
+
+In an production setup, I would recommend to use variables for all domain items and put them in the `group_vars/all/zones` and `group_vars/nameservers`.
 
 ~~~
 {% verbatim %}---
@@ -180,5 +185,6 @@ With the role `ansible-role-bind` and the variable `bind_masterzones_path` point
 
 ## Summary
 
+Two simple plays and the template module can be a huge time saver when handling with bind zone files.
 Ansible can help to make DNS zone management fun again.
 
