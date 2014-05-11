@@ -3,24 +3,24 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d223756c62cdbdbb6b0ead98dac1cfb4",
+    "hash": "c37d66e9762ee0b0b5f6edebfa78ac52",
     "packages": [
         {
             "name": "components/bootstrap",
-            "version": "2.3.2",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/bootstrap.git",
-                "reference": "4e517c991623b3bd913e2becd44831b2c9b0be90"
+                "reference": "839953cfb830aa27e8fd94404a4a6e02fb38a51a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/bootstrap/zipball/4e517c991623b3bd913e2becd44831b2c9b0be90",
-                "reference": "4e517c991623b3bd913e2becd44831b2c9b0be90",
+                "url": "https://api.github.com/repos/components/bootstrap/zipball/839953cfb830aa27e8fd94404a4a6e02fb38a51a",
+                "reference": "839953cfb830aa27e8fd94404a4a6e02fb38a51a",
                 "shasum": ""
             },
             "require": {
-                "components/jquery": "*"
+                "components/jquery": ">=1.9"
             },
             "suggest": {
                 "components/bootstrap-default": "Provide a theme for Bootstrap as components/bootstrap only provides the CSS as file assets"
@@ -34,7 +34,8 @@
                     "files": [
                         "js/bootstrap.min.js",
                         "css/*.css",
-                        "img/*.png"
+                        "fonts/*",
+                        "less/*"
                     ],
                     "shim": {
                         "deps": [
@@ -58,20 +59,20 @@
                 "bootstrap",
                 "css"
             ],
-            "time": "2013-07-18 20:01:48"
+            "time": "2014-02-25 09:50:56"
         },
         {
             "name": "components/highlightjs",
-            "version": "7.3.0",
+            "version": "8.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/highlightjs.git",
-                "reference": "60f5b260c3ae12578f7241e15e8102e9b65c4d3b"
+                "reference": "1117bfd53aeb5d7e15d14aeb4c049cf355cb466c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/highlightjs/zipball/60f5b260c3ae12578f7241e15e8102e9b65c4d3b",
-                "reference": "60f5b260c3ae12578f7241e15e8102e9b65c4d3b",
+                "url": "https://api.github.com/repos/components/highlightjs/zipball/1117bfd53aeb5d7e15d14aeb4c049cf355cb466c",
+                "reference": "1117bfd53aeb5d7e15d14aeb4c049cf355cb466c",
                 "shasum": ""
             },
             "require": {
@@ -103,20 +104,20 @@
                 }
             ],
             "description": "Highlight.js highlights syntax in code examples on blogs, forums and in fact on any web pages.",
-            "time": "2013-04-24 15:11:49"
+            "time": "2014-01-22 15:38:09"
         },
         {
             "name": "components/jquery",
-            "version": "1.9.1",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jquery.git",
-                "reference": "0e94233e6a4ab678d8fc04312241b2f840717b0c"
+                "reference": "c20fd94f83db26dfdce5f37ce5d6cbe0e907a05b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jquery/zipball/0e94233e6a4ab678d8fc04312241b2f840717b0c",
-                "reference": "0e94233e6a4ab678d8fc04312241b2f840717b0c",
+                "url": "https://api.github.com/repos/components/jquery/zipball/c20fd94f83db26dfdce5f37ce5d6cbe0e907a05b",
+                "reference": "c20fd94f83db26dfdce5f37ce5d6cbe0e907a05b",
                 "shasum": ""
             },
             "require": {
@@ -148,7 +149,7 @@
             ],
             "description": "jQuery JavaScript Library",
             "homepage": "http://jquery.com",
-            "time": "2013-07-16 10:41:05"
+            "time": "2014-01-24 21:17:36"
         },
         {
             "name": "kriswallsmith/assetic",
