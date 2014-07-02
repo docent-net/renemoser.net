@@ -48,7 +48,7 @@
             </div>
 
         </header>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row row-offcanvas row-offcanvas-right">
                 <div class="col-xs-12 col-sm-9">
                     {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <footer class="container">
+        <footer class="container-fluid">
             <p><a href="{{ site.url }}/atom.xml" title="Atom"><i class="fa fa-rss-square"></i></a> | <a href="https://github.com/resmo/renemoser.net">Source {% include 'git_rev.txt' ignore missing %}</a> | Powered by <a href="https://sculpin.io/">sculpin.io</a> | &copy; {{ site.title }}</p>
         </footer>
 
