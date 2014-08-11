@@ -1,6 +1,6 @@
 ---
 title: Manage Bind and zone files using Ansible
-updated_at: 2014-09-05
+updated_at: 2014-08-11
 categories:
  - sysadmin
 tags :
@@ -67,12 +67,12 @@ As you can see, quite generic. We have blocks and some variables. Blocks are use
 For a default zone, just extend the base. The template looks as simple as that:
 ~~~
 {% verbatim %}; template files/dns/tempaltes/db.yourdomain.tld
-{% set serial = '2014030301' %}
-{% extends "base" %}{% endverbatim %}
+{% extends "base" %}
+{% set serial = '2014030301' %}{% endverbatim %}
 ~~~
 
 ## Zone yourotherdomain.tld
-Now, for another domain `yourotherdomain.tld` if want to have a diffrent setup. We would like to have different NS records, other MX records and a new CNAME `echolon` beside the existing ones of the base template. To achieve that all, we change the block contents where needed or extend them by calling the function `parent()` within the block:
+Now, for another domain `yourotherdomain.tld` if want to have a diffrent setup. We would like to have different NS records, other MX records and a new CNAME `echolon` beside the existing ones of the base template. To achieve that all, we change the block contents where needed or extend them by calling the function `super()` within the block:
 ~~~
 {% verbatim %}; template files/dns/tempaltes/db.yourotherdomain.tld
 {% extends "base" %}
@@ -99,7 +99,7 @@ Now, for another domain `yourotherdomain.tld` if want to have a diffrent setup. 
 
 {% block records %}
 ; take everything from the base zone.
-{{ parent() }}
+{{ super() }}
 
 ; and add those ones
 echolon			IN	CNAME		yourdomain.tld.
