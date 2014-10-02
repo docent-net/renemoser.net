@@ -66,7 +66,7 @@ As you can see, quite generic. We have blocks and some variables. Blocks are use
 
 For a default zone, just extend the base. The template looks as simple as that:
 ~~~
-{% verbatim %}; template files/dns/tempaltes/db.yourdomain.tld
+{% verbatim %}; template files/dns/templates/db.yourdomain.tld
 {% extends "base" %}
 {% set serial = '2014030301' %}{% endverbatim %}
 ~~~
@@ -74,7 +74,7 @@ For a default zone, just extend the base. The template looks as simple as that:
 ## Zone yourotherdomain.tld
 Now, for another domain `yourotherdomain.tld` if want to have a diffrent setup. We would like to have different NS records, other MX records and a new CNAME `echolon` beside the existing ones of the base template. To achieve that all, we change the block contents where needed or extend them by calling the function `super()` within the block:
 ~~~
-{% verbatim %}; template files/dns/tempaltes/db.yourotherdomain.tld
+{% verbatim %}; template files/dns/templates/db.yourotherdomain.tld
 {% extends "base" %}
 {% set serial = '2014030301' %}
 
@@ -111,7 +111,7 @@ echolon			IN	CNAME		yourdomain.tld.
 The resulting generated zone would then looks like this one below. Also look at the comments in the zone to see what happend in the block.
 
 ~~~
-; template files/dns/tempaltes/db.yourotherdomain.tld
+; template files/dns/templates/db.yourotherdomain.tld
 ; Warning: File is managed by Ansible
 $TTL 4h
 $ORIGIN yourotherdomain.tld.
@@ -157,7 +157,7 @@ The play is farly simple, just a template task. But notice the task is set up to
   gather_facts: no
   tasks:
   - name: generate zones from template
-    local_action: template src=files/dns/tempaltes/db.{{ item.name }} dest=files/dns/masterzones/
+    local_action: template src=files/dns/templates/db.{{ item.name }} dest=files/dns/masterzones/
     with_items:
       - name: yourotherdomain.tld
 {% endverbatim %}
